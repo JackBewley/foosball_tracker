@@ -65,8 +65,13 @@
   .span16
     %h3 Teammates
     - resource.pairings.each do |u,count|
-      %b= "#{u.name} (#{count} times)"
-      %br
+      .row
+        .span16
+          .score
+            #{count}
+          %b= "#{u.name}"
+
+      
       
 .row
   .span8

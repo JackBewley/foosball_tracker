@@ -7,7 +7,10 @@
     .span3
       %strong #{user.name} (#{'%0.1f' % user.current_rank})
       %br
-      %small #{pluralize user.wins_count, 'win'}, #{pluralize user.losses_count, 'loss'}
+      %small
+        #{user.wins_count} - #{user.losses_count}
+        -# #{pluralize user.wins_count, 'win'}, #{pluralize user.losses_count, 'loss'}
+        (#{(user.wins_count / (user.wins_count + user.losses_count).to_f) * 100 rescue 0}%)
 
 .spacer3
 %h2 Teams
