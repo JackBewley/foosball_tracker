@@ -10,7 +10,7 @@
       %small
         #{user.wins_count} - #{user.losses_count}
         -# #{pluralize user.wins_count, 'win'}, #{pluralize user.losses_count, 'loss'}
-        (#{(user.wins_count / (user.wins_count + user.losses_count).to_f) * 100 rescue 0}%)
+        (#{number_to_percentage(user.wins_count / (user.wins_count + user.losses_count).to_f * 100, :precision => 2, :strip_insignificant_zeros => true) rescue 0})
 
 .spacer3
 %h2 Teams
