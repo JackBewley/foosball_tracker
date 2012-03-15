@@ -61,7 +61,13 @@
 
 %p #{pluralize resource.players.where(:position => 'Offense').count, 'game'} on offense, #{pluralize resource.players.where(:position => 'Defense').count, 'game'} on defense
           
-        
+.row
+  .span16
+    %h3 Teammates
+    - resource.played_with.each do |u,count|
+      %b= "#{u.name} (#{count} times)"
+      %br
+      
 .row
   .span8
     %h3= pluralize resource.wins_count, 'Win'

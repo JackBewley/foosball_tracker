@@ -57,6 +57,16 @@ class User < ActiveRecord::Base
     end
   end
   
+  def teammates
+    self.players.map(&:teammate).flatten
+  end
+  
+  def played_with
+    user_list = self.teammates.map(&:user).flatten
+    list_and_count = user_list.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
+    list_and_count.to_a.sort_by(&:last).reverse
+  end
+  
   # Gives the most recent rating before time
   def rating_before(time)
     prev_player = players.where(['players.created_at < ?', time]).most_recent.first

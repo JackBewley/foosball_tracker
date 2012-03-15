@@ -56,4 +56,8 @@ class Player < ActiveRecord::Base
   def self.rank(rating)
     [rating.mean - 3 * rating.deviation, 0].max
   end
+  
+  def teammate
+    self.team.players.includes(:user).all.reject{|p| p.user.id == self.user.id}
+  end
 end
