@@ -10,7 +10,7 @@
       %small #{pluralize user.wins_count, 'win'}, #{pluralize user.losses_count, 'loss'}
 
 .spacer3
-%h3 Teammates
+%h2 Teams
 - user_list = Team.all.map(&:pairings)
 - list_and_count = user_list.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
 - list_and_count = list_and_count.to_a.sort_by(&:last).reverse
