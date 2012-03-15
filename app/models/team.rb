@@ -16,4 +16,17 @@ class Team < ActiveRecord::Base
   def overtime?
     is_winner ? goals > 10 : goals > 8
   end
+  
+  def pairings
+    self.players.sort_by{|i| i.user_id}.flatten.map(&:user).to_a
+    # self.players.sort_by{|i| i.user_id}.flatten.map(&:user).map(&:name).to_a
+    # user_list = self.players.sort_by{|i| i.user_id}.flatten.map(&:user).map(&:name).to_a    
+    # puts user_list
+    # h = Hash.new(0)
+    # user_list.each { | v | h.store(v, h[v]+1) }
+    # h
+    #.to_a.sort_by(&:last).reverse
+    
+  end
+  
 end

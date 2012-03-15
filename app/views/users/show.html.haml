@@ -64,7 +64,7 @@
 .row
   .span16
     %h3 Teammates
-    - resource.played_with.each do |u,count|
+    - resource.pairings.each do |u,count|
       %b= "#{u.name} (#{count} times)"
       %br
       

@@ -61,7 +61,7 @@ class User < ActiveRecord::Base
     self.players.map(&:teammate).flatten
   end
   
-  def played_with
+  def pairings
     user_list = self.teammates.map(&:user).flatten
     list_and_count = user_list.inject(Hash.new(0)) {|h,i| h[i] += 1; h }
     list_and_count.to_a.sort_by(&:last).reverse
