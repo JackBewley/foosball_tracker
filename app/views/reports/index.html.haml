@@ -1,0 +1,10 @@
+%table
+  %tr
+    %th Team
+    %th Player 1
+    %th Player 2
+  - @rows.each do |row|
+    %tr
+      %td= row[0]
+      %td= row[1]
+      %td= row[2]

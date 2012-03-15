@@ -1,5 +1,6 @@
 FoosballLeague::Application.routes.draw do
-
+  get "reports" => "reports#index"
+  
   get 'home' => "pages#home"
 
   get "login" => "sessions#new"
